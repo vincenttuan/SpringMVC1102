@@ -68,7 +68,7 @@ public class Hello {
     // login4?id=1,5,6,8,15,20
     @RequestMapping(value = {"/login4"})
     @ResponseBody
-    public String login4(@RequestParam List<String> ids) {
+    public String login4(@RequestParam(name = "id") List<String> ids) {
         return ids + " Login4 OK";
     }
     
