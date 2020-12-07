@@ -17,9 +17,24 @@ public class Hello {
     }
     
     @RequestMapping("/add/{x}/{y}")
+    @ResponseBody
     public String add(@PathVariable int x, @PathVariable int y) {
         int sum = x + y;
         return sum + "";
+    }
+    
+    /*
+        Ant 語法:
+        * : 任意多字
+        ? : 任意一字
+        ** : 任意多組資料夾
+    */
+    //@RequestMapping("/*/antpath")
+    //@RequestMapping("/java?/antpath")
+    @RequestMapping("/**/antpath")
+    @ResponseBody
+    public String antPath() {
+        return "Ant path success !";
     }
     
 }
