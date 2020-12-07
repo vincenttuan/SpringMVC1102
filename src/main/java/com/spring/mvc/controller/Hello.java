@@ -1,6 +1,8 @@
 package com.spring.mvc.controller;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,4 +57,19 @@ public class Hello {
                          @RequestParam(name = "pwd") String password) {
         return username + ", " + password + ", Login2 OK";
     }
+    
+    // login3?usr=admin&pwd=1234&age=20&level=7 ...
+    @RequestMapping(value = {"/login3"})
+    @ResponseBody
+    public String login3(@RequestParam Map<String, String> params) {
+        return params + " Login3 OK";
+    }
+    
+    // login4?id=1,5,6,8,15,20
+    @RequestMapping(value = {"/login4"})
+    @ResponseBody
+    public String login4(@RequestParam List<String> ids) {
+        return ids + " Login4 OK";
+    }
+    
 }
