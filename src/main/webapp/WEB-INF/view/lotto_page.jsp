@@ -7,5 +7,6 @@
     </head>
     <body>
         <h1>本期電腦選號是:</h1>
+        ${ lotto }
     </body>
 </html>
