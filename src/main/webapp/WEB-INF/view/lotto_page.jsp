@@ -7,6 +7,8 @@
     </head>
     <body>
         <h1>本期電腦選號是:</h1>
+        <%=request.getAttribute("lotto") %>
+        ${ requestScope.lotto }
         ${ lotto }
     </body>
 </html>
