@@ -15,9 +15,8 @@ public class Lotto {
     private LottoService lottoService;
     
     @RequestMapping("/get")
-    @ResponseBody
     public String get() {
         Set<Integer> lotto = lottoService.getLotto();
-        return lotto.toString();
+        return "lotto_page"; // <-- jsp 的檔案(可含子路徑)
     }
 }
