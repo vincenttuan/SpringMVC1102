@@ -38,9 +38,9 @@ public class Hello {
         return "Ant path success !";
     }
     
-    //login?username=admin&password=1234
-    //check?username=admin&password=1234
-    //login?username=admin
+    // login?username=admin&password=1234
+    // check?username=admin&password=1234
+    // login?username=admin
     @RequestMapping(value = {"/login", "/check"})
     @ResponseBody
     public String login(@RequestParam String username, 
@@ -48,6 +48,7 @@ public class Hello {
         return username + ", " + password + ", Login OK";
     }
     
+    // login2?usr=admin&pwd=1234
     @RequestMapping(value = {"/login2"})
     @ResponseBody
     public String login2(@RequestParam(name = "usr") String username, 
