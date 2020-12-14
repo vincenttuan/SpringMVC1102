@@ -20,7 +20,7 @@
             <div id="main">
                 <div class="header">
                     <h1>部門</h1>
-                    <h2>副標題</h2>
+                    <h2>${ dept_list }</h2>
                 </div>
                 <table class="pure-table" style="border: none;">
                     <td valign="top">
