@@ -33,4 +33,10 @@ public class CompanyDao {
         return list;
     }
     
+    // 查詢所有員工
+    public List queryAllEmps() {
+        List list = getSession().createQuery("from Employee e").list();
+        return list;
+    }
+    
 }
