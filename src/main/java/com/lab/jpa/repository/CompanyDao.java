@@ -27,4 +27,10 @@ public class CompanyDao {
         return list;
     }
     
+    // 查詢所有社團資料
+    public List queryAllClubs() {
+        List list = getSession().createQuery("from Club c").list();
+        return list;
+    }
+    
 }
