@@ -1,9 +1,12 @@
 package com.lab.jpa.entities;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +18,9 @@ public class Club {
     
     @Column
     private String name;
+    
+    @ManyToMany(mappedBy = "clubs")
+    private Set<Employee> employees = new LinkedHashSet<>();
     
     public Integer getId() {
         return id;
@@ -30,6 +36,14 @@ public class Club {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
     
     

@@ -36,12 +36,13 @@
                         <!-- 列表 -->
                         <form class="pure-form">
                             <fieldset>
-                                <legend>OOO list</legend>
+                                <legend>Club list</legend>
                                 <table class="pure-table pure-table-bordered" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>name</th>
+                                            <th>序號</th>
+                                            <th>名稱</th>
+                                            <th>人數</th>
                                         </tr>
                                     </thead>
 
@@ -50,6 +51,7 @@
                                         <tr>
                                             <td>${ club.id }</td>
                                             <td>${ club.name }</td>
+                                            <td>${ fn:length(club.employees) }</td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
