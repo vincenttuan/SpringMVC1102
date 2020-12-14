@@ -40,17 +40,18 @@
                                 <table class="pure-table pure-table-bordered" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>欄位一</th>
-                                            <th>欄位二</th>
+                                            <th>id</th>
+                                            <th>name</th>
                                         </tr>
                                     </thead>
 
                                     <tbody>
+                                        <c:forEach var="club" items="${ club_list }">
                                         <tr>
-                                            <td>A</td>
-                                            <td>B</td>
+                                            <td>${ club.id }</td>
+                                            <td>${ club.name }</td>
                                         </tr>
-
+                                        </c:forEach>
                                     </tbody>
                                 </table> 
                             </fieldset>
