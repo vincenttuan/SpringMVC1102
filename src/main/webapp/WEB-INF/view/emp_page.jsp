@@ -20,7 +20,7 @@
             <div id="main">
                 <div class="header">
                     <h1>員工</h1>
-                    <h2>副標題</h2>
+                    <h2></h2>
                 </div>
                 <table class="pure-table" style="border: none;">
                     <td valign="top">
