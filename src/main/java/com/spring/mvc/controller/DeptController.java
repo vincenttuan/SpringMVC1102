@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/dept")
 public class DeptController {
     
-    @GetMapping(value = {"/"})
+    @RequestMapping(value = {"/"})
     public String read() {
         return "dept_page";
     }
