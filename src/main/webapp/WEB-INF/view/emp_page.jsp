@@ -40,8 +40,11 @@
                                 <table class="pure-table pure-table-bordered" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>name</th>
+                                            <th>序號</th>
+                                            <th>姓名</th>
+                                            <th>部門</th>
+                                            <th>薪資</th>
+                                            <th>社團</th>
                                         </tr>
                                     </thead>
 
@@ -50,6 +53,13 @@
                                         <tr>
                                             <td>${ emp.id }</td>
                                             <td>${ emp.name }</td>
+                                            <td>${ emp.department.name }</td>
+                                            <td>${ emp.salary.money }</td>
+                                            <td>
+                                                <c:forEach var="club" items="${ emp.clubs }">
+                                                    ${ club.name }
+                                                </c:forEach>    
+                                            </td>
                                         </tr>
                                         </c:forEach>
                                     </tbody>
