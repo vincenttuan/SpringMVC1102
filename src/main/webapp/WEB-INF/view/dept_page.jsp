@@ -40,8 +40,9 @@
                                 <table class="pure-table pure-table-bordered" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>id</th>
-                                            <th>name</th>
+                                            <th>序號</th>
+                                            <th>名稱</th>
+                                            <th>人數</th>
                                         </tr>
                                     </thead>
 
@@ -50,6 +51,7 @@
                                             <tr>
                                                 <td>${ dept.id }</td>
                                                 <td>${ dept.name }</td>
+                                                <td>${ fn:length(dept.employees) }</td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
