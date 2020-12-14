@@ -1,5 +1,6 @@
 package com.lab.jpa.repository;
 
+import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ public class CompanyDao {
     }
     
     // 查詢所有部門資料
-    
+    public List queryAllDepts() {
+        List list = getSession().createQuery("from Department d").list();
+        return list;
+    }
     
 }
