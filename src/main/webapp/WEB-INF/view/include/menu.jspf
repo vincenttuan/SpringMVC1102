@@ -1,0 +1,23 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+
+<div id="menu">
+    <div class="pure-menu">
+        <a class="pure-menu-heading" href="#">
+            OOO 您好
+        </a>
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item">
+                <a href="${pageContext.request.contextPath}/mvc/dept/" class="pure-menu-link">部門</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="${pageContext.request.contextPath}/mvc/club/" class="pure-menu-link">社團</a>
+            </li>
+            <li class="pure-menu-item">
+                <a href="${pageContext.request.contextPath}/mvc/emp/" class="pure-menu-link">員工</a>
+            </li>
+        </ul>
+    </div>
+</div>
