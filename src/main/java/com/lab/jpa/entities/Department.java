@@ -4,6 +4,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -15,7 +16,6 @@ public class Department {
     @Id
     @GeneratedValue
     private Integer id;
-    
     @Column
     private String name;
     
@@ -50,6 +50,6 @@ public class Department {
     public String toString() {
         return "Department{" + "id=" + id + ", name=" + name + '}';
     }
-    
+
     
 }

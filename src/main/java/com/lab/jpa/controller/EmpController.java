@@ -39,16 +39,19 @@ public class EmpController {
     }
     
     @RequestMapping(value = {"/"}, method = {RequestMethod.POST})
-    @ResponseBody
+    //@ResponseBody
     public String create(@ModelAttribute("emp") Employee emp,
             @RequestParam Integer[] clubIds) {
+        
         if(clubIds != null) {
             for(Integer id : clubIds) {
                 Club club = dao.getClub(id);
                 emp.getClubs().add(club);
             }
         }
-        return emp.toString();
+        dao.saveEmp(emp);
+        return "redirect: ./";
+        //return emp.toString();
     }
     
 }

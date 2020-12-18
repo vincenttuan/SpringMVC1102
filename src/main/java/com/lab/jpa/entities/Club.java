@@ -2,12 +2,16 @@ package com.lab.jpa.entities;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "clubs")
@@ -17,8 +21,17 @@ public class Club {
     private Integer id;
     
     @Column
+    @NotNull
+    //@Size(min = 1, max = 20, message = "請輸入社團名稱")
+    //預設會抓取 classpath:ValidationMessages.properties
+    //classpath -> 在 Eclipse 中就是 src/
+    //             在 Netbeans 中就是 src/main/resources
+    //             在 war 檔中會配置在 /WEB-INF/classes/
+    @Size(min = 1, max = 20, message = "{club.name.empty}")
     private String name;
     
+    // 注意, cascade = CascadeType.REMOVE 會把員工也一並刪除
+    //@ManyToMany(mappedBy = "clubs", cascade = CascadeType.REMOVE)
     @ManyToMany(mappedBy = "clubs")
     private Set<Employee> employees = new LinkedHashSet<>();
     
@@ -45,11 +58,7 @@ public class Club {
     public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
-
-    @Override
-    public String toString() {
-        return "Club{" + "id=" + id + ", name=" + name + '}';
-    }
+    
     
     
 }

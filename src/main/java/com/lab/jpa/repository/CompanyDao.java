@@ -33,6 +33,12 @@ public class CompanyDao {
         return list;
     }
     
+    // 查詢單筆部門
+    public Department getDept(Integer id) {
+        Department dept = (Department)getSession().get(Department.class, id);
+        return dept;
+    }
+    
     // 新增部門
     @Transactional
     public void saveDept(Department dept) {

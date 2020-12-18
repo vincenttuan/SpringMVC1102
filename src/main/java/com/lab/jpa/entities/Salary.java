@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +16,7 @@ public class Salary {
     
     @Column
     private Integer money;
-
+    
     public Integer getId() {
         return id;
     }
@@ -32,10 +33,5 @@ public class Salary {
         this.money = money;
     }
 
-    @Override
-    public String toString() {
-        return "Salary{" + "id=" + id + ", money=" + money + '}';
-    }
-    
     
 }
