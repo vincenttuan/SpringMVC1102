@@ -11,8 +11,12 @@ public class CompanyDao {
     @Autowired
     private SessionFactory sessionFactory;
     
+    private Session session = null;
+    
     private Session getSession() {
-        Session session = null;
+        if(session != null) {
+            return session;
+        }
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
