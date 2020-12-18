@@ -1,5 +1,6 @@
 package com.lab.jpa.repository;
 
+import com.lab.jpa.entities.Department;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -29,6 +30,10 @@ public class CompanyDao {
     public List queryAllDepts() {
         List list = getSession().createQuery("from Department d").list();
         return list;
+    }
+    
+    public void saveDept(Department dept) {
+        getSession().persist(dept);
     }
     
     // 查詢所有社團資料

@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix = "fn" uri = "http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix = "form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html>
     <head>
@@ -26,11 +27,17 @@
                     <td valign="top">
                         <!-- 表單 -->
                         <form:form class="pure-form" 
-                                   modelAttribute="emp" 
+                                   modelAttribute="dept" 
                                    method="post" 
-                                   action="${pageContext.request.contextPath}/mvc/" >
-
+                                   action="${pageContext.request.contextPath}/mvc/dept/" >
+                            <fieldset>
+                                <legend>Dept From</legend>
+                                <form:input path="id" /><p />
+                                <form:input path="name" /><p />
+                                <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
+                            </fieldset>
                         </form:form>
+                        
                     </td>
                     <td valign="top">
                         <!-- 列表 -->
