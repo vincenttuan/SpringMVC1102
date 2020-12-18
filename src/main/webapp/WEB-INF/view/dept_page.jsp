@@ -50,6 +50,7 @@
                                             <th>序號</th>
                                             <th>名稱</th>
                                             <th>人數</th>
+                                            <th>修改</th>
                                         </tr>
                                     </thead>
 
@@ -59,6 +60,7 @@
                                                 <td>${ dept.id }</td>
                                                 <td>${ dept.name }</td>
                                                 <td>${ fn:length(dept.employees) }</td>
+                                                <td><a href="${pageContext.request.contextPath}/mvc/dept/${ dept.id }">修改</a></td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
