@@ -4,6 +4,7 @@ import com.lab.jpa.entities.Club;
 import com.lab.jpa.entities.Department;
 import com.lab.jpa.entities.Employee;
 import java.util.List;
+import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,11 @@ public class CompanyDao {
     private Session session = null;
     
     private Session getSession() {
-        if(session != null) {
+        return getSession(true);
+    }
+    // flag: true (提供給查詢), false: 提供給新增修改刪除
+    private Session getSession(boolean flag) {
+        if(flag && session != null) {
             return session;
         }
         try {
@@ -35,8 +40,9 @@ public class CompanyDao {
     }
     
     // 新增部門
+    @Transactional
     public void saveDept(Department dept) {
-        getSession().save(dept);
+        getSession(false).persist(dept);
     }
     
     // 查詢所有社團資料
@@ -46,8 +52,9 @@ public class CompanyDao {
     }
     
     // 新增社團
+    @Transactional
     public void saveClub(Club club) {
-        getSession().save(club);
+        getSession(false).persist(club);
     }
     
     // 查詢所有員工
