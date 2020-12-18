@@ -45,6 +45,12 @@ public class CompanyDao {
         return list;
     }
     
+    // 查詢單筆社團
+    public Club getClub(Integer id) {
+        Club club = (Club)getSession().get(Club.class, id);
+        return club;
+    }
+    
     // 新增社團
     @Transactional
     public void saveClub(Club club) {
