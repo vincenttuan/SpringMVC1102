@@ -19,8 +19,8 @@ public class DeptController {
     @Autowired
     private CompanyDao dao;
     
-    @RequestMapping(value = {"/"}, method = {RequestMethod.GET})
-    public String read(Model model) {
+    @GetMapping(value = {"/", "/{id}"})
+    public String read(Model model, @PathVariable(name = "id", required = false) Integer id) {
         List dept_list = dao.queryAllDepts();
         Department dept = new Department();
         model.addAttribute("dept_list", dept_list);
