@@ -15,9 +15,9 @@ public class CompanyDao {
     private Session session = null;
     
     private Session getSession() {
-        if(session != null) {
-            return session;
-        }
+//        if(session != null) {
+//            return session;
+//        }
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
@@ -33,7 +33,7 @@ public class CompanyDao {
     }
     
     public void saveDept(Department dept) {
-        getSession().persist(dept);
+        getSession().save(dept);
     }
     
     // 查詢所有社團資料

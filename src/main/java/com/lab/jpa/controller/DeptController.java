@@ -30,7 +30,7 @@ public class DeptController {
     @RequestMapping(value = {"/"}, method = {RequestMethod.POST})
     public String create(@ModelAttribute("dept") Department dept) {
         dao.saveDept(dept);
-        return "redirect ./";
+        return "redirect: ./";
     }
     
 }
