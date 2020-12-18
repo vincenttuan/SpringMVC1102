@@ -23,7 +23,7 @@
         <property name="jdbcUrl" value="${jdbc.url}"></property>
         <property name="user" value="${jdbc.username}"></property>
         <property name="password" value="${jdbc.password}"></property>
-        <property name="initialPoolSize" value="10"></property>
+        <property name="initialPoolSize" value="50"></property>
     </bean>
     
     <!-- JPA (Hibernate 配置) -->
