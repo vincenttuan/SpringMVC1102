@@ -46,7 +46,8 @@
                                                </c:if>
                                            </c:forEach>
                                     > ${ club.name }
-                                </c:forEach>
+                                </c:forEach><p />
+                                <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
                             </fieldset>
                             
                         </form:form>
