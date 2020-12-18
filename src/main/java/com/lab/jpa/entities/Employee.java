@@ -77,6 +77,11 @@ public class Employee {
     public void setClubs(Set<Club> clubs) {
         this.clubs = clubs;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" + "id=" + id + ", name=" + name + ", department=" + department + ", salary=" + salary + ", clubs=" + clubs + '}';
+    }
     
     
 }

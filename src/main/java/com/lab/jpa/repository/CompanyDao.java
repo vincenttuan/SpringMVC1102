@@ -63,4 +63,10 @@ public class CompanyDao {
         return emp;
     }
     
+    // 新增員工
+    @Transactional
+    public void saveEmp(Employee emp) {
+        getSession().persist(emp);
+    }
+    
 }
