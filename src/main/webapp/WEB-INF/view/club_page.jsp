@@ -26,10 +26,15 @@
                     <td valign="top">
                         <!-- 表單 -->
                         <form:form class="pure-form" 
-                                   modelAttribute="emp" 
+                                   modelAttribute="club" 
                                    method="post" 
-                                   action="${pageContext.request.contextPath}/mvc/" >
-
+                                   action="${pageContext.request.contextPath}/mvc/club/" >
+                            <fieldset>
+                                <legend>Club Form</legend>
+                                <form:input path="id" readonly="true" /><p />
+                                <form:input path="name" placeholder="請輸入社團名稱" /><p />
+                                <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
+                            </fieldset>
                         </form:form>
                     </td>
                     <td valign="top">

@@ -1,5 +1,6 @@
 package com.lab.jpa.repository;
 
+import com.lab.jpa.entities.Club;
 import com.lab.jpa.entities.Department;
 import java.util.List;
 import org.hibernate.Session;
@@ -32,6 +33,7 @@ public class CompanyDao {
         return list;
     }
     
+    // 新增部門
     public void saveDept(Department dept) {
         getSession().save(dept);
     }
@@ -40,6 +42,11 @@ public class CompanyDao {
     public List queryAllClubs() {
         List list = getSession().createQuery("from Club c").list();
         return list;
+    }
+    
+    // 新增社團
+    public void saveClub(Club club) {
+        getSession().save(club);
     }
     
     // 查詢所有員工
