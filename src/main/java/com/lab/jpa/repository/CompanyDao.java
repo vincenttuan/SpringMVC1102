@@ -2,6 +2,7 @@ package com.lab.jpa.repository;
 
 import com.lab.jpa.entities.Club;
 import com.lab.jpa.entities.Department;
+import com.lab.jpa.entities.Employee;
 import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -16,9 +17,9 @@ public class CompanyDao {
     private Session session = null;
     
     private Session getSession() {
-//        if(session != null) {
-//            return session;
-//        }
+        if(session != null) {
+            return session;
+        }
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
@@ -53,6 +54,12 @@ public class CompanyDao {
     public List queryAllEmps() {
         List list = getSession().createQuery("from Employee e").list();
         return list;
+    }
+    
+    // 查詢單筆員工
+    public Employee getEmp(Integer id) {
+        Employee emp = (Employee)getSession().get(Employee.class, id);
+        return emp;
     }
     
 }
