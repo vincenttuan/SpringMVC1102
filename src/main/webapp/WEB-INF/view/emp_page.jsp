@@ -28,8 +28,14 @@
                         <form:form class="pure-form" 
                                    modelAttribute="emp" 
                                    method="post" 
-                                   action="${pageContext.request.contextPath}/mvc/" >
-
+                                   action="${pageContext.request.contextPath}/mvc/emp/" >
+                            <fieldset>
+                                <legend>Emp Form</legend>
+                                <form:input path="id" readonly="true" /><p />
+                                <form:input path="name" placeholder="請輸入員工名稱" /><p />
+                                <form:input path="salary.money" placeholder="請輸入薪資" /><p />
+                            </fieldset>
+                            
                         </form:form>
                     </td>
                     <td valign="top">
