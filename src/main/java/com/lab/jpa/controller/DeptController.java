@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -22,6 +23,15 @@ public class DeptController {
     public String read(Model model) {
         List dept_list = dao.queryAllDepts();
         Department dept = new Department();
+        model.addAttribute("dept_list", dept_list);
+        model.addAttribute("dept", dept);
+        return "dept_page";
+    }
+    
+    @RequestMapping(value = {"/{id}"}, method = {RequestMethod.GET})
+    public String get(Model model, @PathVariable(name = "id", required = true) Integer id) {
+        List dept_list = dao.queryAllDepts();
+        Department dept = dao.getDept(id);
         model.addAttribute("dept_list", dept_list);
         model.addAttribute("dept", dept);
         return "dept_page";
