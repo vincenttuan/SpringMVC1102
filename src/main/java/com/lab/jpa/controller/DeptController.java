@@ -7,9 +7,12 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -37,9 +40,21 @@ public class DeptController {
         return "dept_page";
     }
     
-    @RequestMapping(value = {"/"}, method = {RequestMethod.POST})
+    @PostMapping(value = {"/"})
     public String create(@ModelAttribute("dept") Department dept) {
         dao.saveDept(dept);
+        return "redirect: ./";
+    }
+    
+    @PutMapping(value = {"/"})
+    public String update(@ModelAttribute("dept") Department dept) {
+        //dao.updateDept(dept);
+        return "redirect: ./";
+    }
+    
+    @DeleteMapping(value = {"/"})
+    public String delete(@ModelAttribute("dept") Department dept) {
+        //dao.deleteDept(dept.getId());
         return "redirect: ./";
     }
     

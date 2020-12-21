@@ -18,9 +18,9 @@ public class CompanyDao {
     private Session session = null;
     
     private Session getSession() {
-        if(session != null) {
-            return session;
-        }
+//        if(session != null && session.isConnected() && session.isOpen()) {
+//            return session;
+//        }
         try {
             session = sessionFactory.getCurrentSession();
         } catch (Exception e) {
