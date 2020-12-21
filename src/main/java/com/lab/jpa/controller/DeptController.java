@@ -3,6 +3,7 @@ package com.lab.jpa.controller;
 import com.lab.jpa.entities.Department;
 import com.lab.jpa.repository.CompanyDao;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,19 +20,18 @@ public class DeptController {
     @Autowired
     private CompanyDao dao;
     
-    @GetMapping(value = {"/", "/{id}"})
-    public String read(Model model, @PathVariable(name = "id", required = false) Integer id) {
+    @GetMapping(value = {"/", // 查詢全部資料用
+                         "/{id}", // 根據 id 查詢單筆使用 (給修改連結用)
+                         "/{delete}/{id}"}) // 根據 id 查詢單筆使用 (給刪除連結用)
+    public String read(Model model, 
+            @PathVariable Optional<Integer> id,
+            @PathVariable Optional<String> delete) {
+        
         List dept_list = dao.queryAllDepts();
         Department dept = new Department();
-        model.addAttribute("dept_list", dept_list);
-        model.addAttribute("dept", dept);
-        return "dept_page";
-    }
-    
-    @RequestMapping(value = {"/{id}"}, method = {RequestMethod.GET})
-    public String get(Model model, @PathVariable(name = "id", required = true) Integer id) {
-        List dept_list = dao.queryAllDepts();
-        Department dept = dao.getDept(id);
+        if(id.isPresent()) {
+            dept = dao.getDept(id.get());
+        }
         model.addAttribute("dept_list", dept_list);
         model.addAttribute("dept", dept);
         return "dept_page";
