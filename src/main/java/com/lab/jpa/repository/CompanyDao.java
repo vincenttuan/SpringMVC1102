@@ -45,6 +45,7 @@ public class CompanyDao {
     @Transactional
     public void saveDept(Department dept) {
         getSession().persist(dept);
+        
     }
     
     // 修改部門
