@@ -19,9 +19,9 @@ public class EmpValidation implements Validator{
     public void validate(Object o, Errors errors) {
         Employee emp = (Employee)o;
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "emp.name.empty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "salary.money", "salary.empty.empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "salary.money", "salary.money.empty");
         if(emp.getSalary().getMoney() != null && emp.getSalary().getMoney() < 40000) {
-            errors.rejectValue("salary.money", "salary.empty.notenough");
+            errors.rejectValue("salary.money", "salary.money.notenough");
         }
         
     }
