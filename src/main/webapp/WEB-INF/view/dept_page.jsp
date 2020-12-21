@@ -52,6 +52,7 @@
                                             <th>名稱</th>
                                             <th>人數</th>
                                             <th>修改</th>
+                                            <th>刪除</th>
                                         </tr>
                                     </thead>
 
@@ -62,6 +63,7 @@
                                                 <td>${ dept.name }</td>
                                                 <td>${ fn:length(dept.employees) }</td>
                                                 <td><a href="${pageContext.request.contextPath}/mvc/dept/${ dept.id }">修改</a></td>
+                                                <td><a href="${pageContext.request.contextPath}/mvc/dept/delete/${ dept.id }">刪除</a></td>
                                             </tr>
                                         </c:forEach>
                                     </tbody>
