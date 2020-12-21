@@ -29,12 +29,18 @@ public class DeptController {
     public String read(Model model, 
             @PathVariable Optional<Integer> id,
             @PathVariable Optional<String> delete) {
-        
+        String _method = "POST";
         List dept_list = dao.queryAllDepts();
         Department dept = new Department();
         if(id.isPresent()) {
+            _method = "PUT";
             dept = dao.getDept(id.get());
+            // 根據路徑參數是否有 delete 字樣
+            if(delete.isPresent() && delete.get().equalsIgnoreCase("delete")) {
+                _method = "DELETE";
+            }
         }
+        model.addAttribute("_method", _method);
         model.addAttribute("dept_list", dept_list);
         model.addAttribute("dept", dept);
         return "dept_page";
