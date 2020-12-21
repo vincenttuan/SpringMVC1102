@@ -54,13 +54,13 @@ public class DeptController {
     
     @PutMapping(value = {"/"})
     public String update(@ModelAttribute("dept") Department dept) {
-        //dao.updateDept(dept);
+        dao.updateDept(dept);
         return "redirect: ./";
     }
     
     @DeleteMapping(value = {"/"})
     public String delete(@ModelAttribute("dept") Department dept) {
-        //dao.deleteDept(dept.getId());
+        dao.deleteDept(dept.getId());
         return "redirect: ./";
     }
     
