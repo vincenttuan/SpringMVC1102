@@ -33,6 +33,7 @@
                                 <legend>Club Form</legend>
                                 <form:input path="id" readonly="true" /><p />
                                 <form:input path="name" placeholder="請輸入社團名稱" /><p />
+                                <form:errors path="*" style="color:red" /><p />
                                 <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
                             </fieldset>
                         </form:form>
