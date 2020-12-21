@@ -35,6 +35,7 @@
                                 <form:input path="id" readonly="true" /><p />
                                 <form:input path="name" placeholder="請輸入部門名稱" /><p />
                                 <input type="text" id="_method" name="_method" readonly="true" value="${ _method }" /><p />
+                                <form:errors path="name" style="color:red" /><p />
                                 <form:errors path="*" style="color:red" /><p />
                                 <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
                             </fieldset>

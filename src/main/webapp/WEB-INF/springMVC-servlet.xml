@@ -15,6 +15,11 @@
     <context:component-scan base-package="com.spring.mvc.controller"></context:component-scan>
     <context:component-scan base-package="com.spring.mvc.service"></context:component-scan>
     
+    <!-- 數據驗證資料 -->
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="classpath:validation-message" />
+    </bean>
+    
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"></property>
         <property name="suffix" value=".jsp"></property>
