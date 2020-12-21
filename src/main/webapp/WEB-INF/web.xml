@@ -20,4 +20,14 @@
         <url-pattern>/mvc/*</url-pattern>
     </servlet-mapping>
     
+    <!-- POST 轉換 PUT 或 DELETE 的攔截(過濾)器 -->
+    <filter>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HiddenHttpMethodFilter</filter-name>
+        <url-pattern>/mvc/*</url-pattern>
+    </filter-mapping>
+    
 </web-app>
