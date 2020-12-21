@@ -47,6 +47,7 @@
                                            </c:forEach>
                                     > ${ club.name }
                                 </c:forEach><p />
+                                <form:errors path="*" style="color:red" /><p />
                                 <button type="sumbit" class="pure-button pure-button-primary">Submit</button>
                             </fieldset>
                             
