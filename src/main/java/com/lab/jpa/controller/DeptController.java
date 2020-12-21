@@ -2,11 +2,13 @@ package com.lab.jpa.controller;
 
 import com.lab.jpa.entities.Department;
 import com.lab.jpa.repository.CompanyDao;
+import com.lab.jpa.validation.DeptValidation;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -22,6 +24,9 @@ public class DeptController {
     
     @Autowired
     private CompanyDao dao;
+    
+    @Autowired
+    private DeptValidation validation;
     
     @GetMapping(value = {"/", // 查詢全部資料用
                          "/{id}", // 根據 id 查詢單筆使用 (給修改連結用)
@@ -47,7 +52,16 @@ public class DeptController {
     }
     
     @PostMapping(value = {"/"})
-    public String create(@ModelAttribute("dept") Department dept) {
+    public String create(@ModelAttribute("dept") Department dept, 
+            BindingResult result, Model model) {
+        // 數據驗證 @ModelAttribute("dept") 一定要加
+        validation.validate(dept, result); // result 存放驗證後的結果
+        if(result.hasErrors()) {
+            model.addAttribute("_method", "POST");
+            model.addAttribute("dept_list", dao.queryAllDepts());
+            model.addAttribute("dept", dept);
+            return "dept_page"; 
+        }
         dao.saveDept(dept);
         return "redirect: ./";
     }

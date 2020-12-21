@@ -1,11 +1,11 @@
 package com.lab.jpa.validation;
 
 import com.lab.jpa.entities.Department;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-
-
+@Component
 public class DeptValidation implements Validator{
 
     @Override
