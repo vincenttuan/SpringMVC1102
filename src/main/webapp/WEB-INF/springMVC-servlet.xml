@@ -8,7 +8,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
           http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-
+    
+    <!-- 自動針對 MVC 相關的註解@ 做出反應(建構實體) -->      
     <mvc:annotation-driven />
     
     <context:component-scan base-package="com.spring.mvc.controller"></context:component-scan>
