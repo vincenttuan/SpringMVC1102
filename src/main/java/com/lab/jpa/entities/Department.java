@@ -19,7 +19,7 @@ public class Department {
     @Column
     private String name;
     
-    @OneToMany(mappedBy = "department")
+    @OneToMany(mappedBy = "department", fetch = FetchType.EAGER)
     private Set<Employee> employees = new LinkedHashSet<>();
     
     public Integer getId() {
