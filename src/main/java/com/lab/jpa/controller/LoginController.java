@@ -6,6 +6,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +18,7 @@ public class LoginController {
     private final String CLIEND_ID = "889955278565-585vm9tbd9nbfnm58t609j8s64cnkui6.apps.googleusercontent.com";
     
     @PostMapping("/check")
-    @ResponseBody
+    //@ResponseBody
     public String check(HttpServletRequest req) {
         String id_token = req.getParameter("id_token");
         // 建立 Google Token 驗證器
@@ -29,12 +30,16 @@ public class LoginController {
             if(id_token_result != null) {
                 // 索取使用者的公開Google資訊
                 Payload payload = id_token_result.getPayload();
-                String name = payload.get("name") + "";
+                String username = payload.get("name") + "";
                 String email = payload.getEmail();
                 String picture_url = payload.get("picture") + "";
-                return "pass, " + name + ", " + email + ", " + picture_url;
+                // 將使用者資料存放到session
+                HttpSession session = req.getSession();
+                session.setAttribute("username", username);
+                return "redirect: ../dept/";
+                //return "pass, " + username + ", " + email + ", " + picture_url;
             } else {
-                return "fail";
+                return "redirect: ../../google_login.jsp";
             }
         } catch (Exception e) {
         }
