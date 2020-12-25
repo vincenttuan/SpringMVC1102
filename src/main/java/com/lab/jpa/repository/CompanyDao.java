@@ -7,11 +7,13 @@ import java.util.List;
 import javax.transaction.Transactional;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 @Repository
+@Transactional
 public class CompanyDao {
     
     @Autowired
@@ -20,16 +22,7 @@ public class CompanyDao {
     private Session session = null;
     
     private Session getSession() {
-        // 取用 session 之前先進行關閉
-        if(session != null) {
-//            session.close();
-//            session = null;
-        }
-        try {
-            session = sessionFactory.getCurrentSession();
-        } catch (Exception e) {
-            session = sessionFactory.openSession();
-        }
+        session = sessionFactory.getCurrentSession();
         return session;
     }
     
@@ -46,20 +39,17 @@ public class CompanyDao {
     }
     
     // 新增部門
-    @Transactional
     public void saveDept(Department dept) {
         getSession().persist(dept);
-        
     }
     
     // 修改部門
-    @Transactional
+    
     public void updateDept(Department dept) {
         getSession().merge(dept);
     }
     
     // 刪除部門
-    @Transactional
     public void deleteDept(Integer id) {
         Department dept = (Department)getSession().get(Department.class, id);
         getSession().delete(dept);
@@ -78,7 +68,6 @@ public class CompanyDao {
     }
     
     // 新增社團
-    @Transactional
     public void saveClub(Club club) {
         getSession().persist(club);
     }
@@ -96,7 +85,6 @@ public class CompanyDao {
     }
     
     // 新增員工
-    @Transactional
     public void saveEmp(Employee emp) {
         getSession().persist(emp);
     }

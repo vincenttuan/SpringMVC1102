@@ -27,10 +27,10 @@
         <property name="password" value="${jdbc.password}"></property>
         <property name="initialPoolSize" value="50"></property>
     </bean>
-    
+
     <!-- JPA (Hibernate 配置) -->
     <bean id="sessionFactory"
-        class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+          class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
         <!-- 配置資料庫資料源 -->
         <property name="dataSource" ref="dataSource"></property>
         <!-- Entity 物件的存放位置 -->
