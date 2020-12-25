@@ -36,6 +36,8 @@ public class LoginController {
                 // 將使用者資料存放到session
                 HttpSession session = req.getSession();
                 session.setAttribute("username", username);
+                session.setAttribute("picture_url", picture_url);
+                session.setAttribute("email", email);
                 return "redirect: ../dept/";
                 //return "pass, " + username + ", " + email + ", " + picture_url;
             } else {
