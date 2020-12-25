@@ -69,8 +69,8 @@
                         <!-- 圖表 -->
                         <form class="pure-form">
                             <fieldset>
-                                <legend>OOO chart</legend>
-                                
+                                <legend>Club chart</legend>
+                                <%@include file="chart/club_chart.jspf" %>
                             </fieldset>
                         </form>
                     </td>
